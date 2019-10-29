@@ -14,7 +14,7 @@ class HubspotForm extends React.Component {
 		this.findFormElement = this.findFormElement.bind(this)
 	}
 	createForm() {
-		if (window.hbspt) {
+		if (window.hbspt && window.hbspt.forms) {
 			// protect against component unmounting before window.hbspt is available
 			if (this.el === null) {
 				return
@@ -68,7 +68,7 @@ class HubspotForm extends React.Component {
 		}
 	}
 	componentDidMount() {
-		if (!window.hbspt && !this.props.noScript) {
+		if ((!window.hbspt || !window.hbspt.forms) && !this.props.noScript) {
 			this.loadScript()
 		} else {
 			this.createForm()
