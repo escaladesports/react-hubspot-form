@@ -48,7 +48,7 @@ class HubspotForm extends React.Component {
 			this.createForm()
 			this.findFormElement()
 		}
-		script.src = `//js.hsforms.net/forms/v2.js`
+		script.src = `http://js.hsforms.net/forms/v2.js`
 		document.head.appendChild(script)
 	}
 	findFormElement(){
